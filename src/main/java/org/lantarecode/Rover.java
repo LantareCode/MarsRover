@@ -118,7 +118,7 @@ public class Rover implements Movement {
      *
      * @return
      */
-    public String positionString() {
+    public String getPositionString() {
         return String.format("%d %d %s", this.getPosition().getX(), this.getPosition().getY(), this.getPosition().getFacing().toString());
     }
 

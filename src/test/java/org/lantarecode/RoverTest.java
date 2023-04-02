@@ -140,7 +140,7 @@ class RoverTest {
     @Test
     void testPositionString() {
         Rover rover = new Rover(1, 2, "N", this.plateau);
-        assertEquals("1 2 N", rover.positionString());
+        assertEquals("1 2 N", rover.getPositionString());
     }
 
 }

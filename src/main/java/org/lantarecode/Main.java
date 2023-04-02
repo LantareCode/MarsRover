@@ -2,7 +2,6 @@ package org.lantarecode;
 
 import java.io.File;
 import java.io.FileNotFoundException;
-import java.io.InputStream;
 import java.util.*;
 
 public class Main {
@@ -31,14 +30,13 @@ public class Main {
         if (filePath == null) {
             scanner = getFile();
         } else {
-            scanner = getFile(filePath); // This is to allow for an end-to-end test
+            scanner = getFile(filePath); // This is to allow for a test
         }
 
         List<String> inputLines = new ArrayList<String>();
         List<Rover> movedRovers = new ArrayList<Rover>();
 
         try {
-            // Build a map containing Team Name (String) and their Points (Integer)
             while (scanner.hasNextLine()) {
                 String data = scanner.nextLine();
                 inputLines.add(data);
@@ -67,7 +65,7 @@ public class Main {
         // Create output
         StringBuilder stringBuilder = new StringBuilder();
         for (Rover rover: movedRovers) {
-            stringBuilder.append(rover.positionString()).append("\n");
+            stringBuilder.append(rover.getPositionString()).append("\n");
         }
 
         return stringBuilder.toString();
