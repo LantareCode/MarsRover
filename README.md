@@ -47,9 +47,9 @@ MMRMMRMRRM
 5 1 E
 
 # Environment and Dependencies
-- Open JDK 20
+- JDK 1.8
 - IntelliJ IDEA
-- Maven 20
+- Maven 8
 - junit 5.9.2
 
 # Usage
