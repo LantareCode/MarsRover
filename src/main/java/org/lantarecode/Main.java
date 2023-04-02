@@ -2,27 +2,37 @@ package org.lantarecode;
 
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.io.InputStream;
 import java.util.*;
 
-// Press Shift twice to open the Search Everywhere dialog and type `show whitespaces`,
-// then press Enter. You can now see whitespace characters in your code.
 public class Main {
-
-    // TODO: unit tests
-    // TODO: end-to-end tset (integration test)
-    // TODO: Maven
-    // TODO: Create good readme
-
-    /*
-    Plateau plateau = new Plateau(5, 5);
-        Rover rover = new Rover(1, 2, "N", plateau);
-        rover.executeInstructions("LMLMLMLMM");
-        System.out.println(rover.positionString());
-     */
     public static void main(String[] args) {
+        Main app = new Main();
+        String result = app.run();
+
+        System.out.println(result);
+    }
+
+    /**
+     *
+     */
+    public static String run() {
+        return run(null);
+    }
+
+    /**
+     *
+     * @param filePath
+     */
+    public static String run(String filePath) {
 
         // Get file from user
-        Scanner scanner = getFile();
+        Scanner scanner;
+        if (filePath == null) {
+            scanner = getFile();
+        } else {
+            scanner = getFile(filePath); // This is to allow for an end-to-end test
+        }
 
         List<String> inputLines = new ArrayList<String>();
         List<Rover> movedRovers = new ArrayList<Rover>();
@@ -50,14 +60,17 @@ public class Main {
                 movedRovers.add(rover);
             }
 
-            // Print output
-            for (Rover rover: movedRovers) {
-                System.out.println(rover.positionString());
-            }
         } catch (Exception e) {
             System.out.println(String.format("ERROR: The file contains an error. Please try again. Error Message: %s", e.getMessage()));
         }
 
+        // Create output
+        StringBuilder stringBuilder = new StringBuilder();
+        for (Rover rover: movedRovers) {
+            stringBuilder.append(rover.positionString()).append("\n");
+        }
+
+        return stringBuilder.toString();
     }
 
     /**
@@ -65,14 +78,26 @@ public class Main {
      * @return
      */
     private static Scanner getFile() {
-//        Scanner scanner = new Scanner(System.in);
-//        System.out.println("Please enter the path to your .txt file:");
-//        String path = scanner.nextLine();
+        return getFile(null);
+    }
 
-        /**/
+    /**
+     *
+     * @param filePath
+     * @return
+     */
+    private static Scanner getFile(String filePath) {
+
         Scanner scanner = new Scanner(System.in);
-        String path = "C:/Users/Valeske/Desktop/IdeaProjects/MarsRover/src/main/resources/input.txt"; // TOOD
-        /**/
+        String path;
+
+        if (filePath == null) {
+            System.out.println("Please enter the path to your .txt file:");
+            path = scanner.nextLine();
+        } else {
+            path = filePath;
+        }
+
         // Check if file is found.
         try {
             scanner = new Scanner(new File(path));
