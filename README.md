@@ -56,5 +56,5 @@ MMRMMRMRRM
 #### 1. Import project into IntelliJ IDEA IDE and run Main and follow the prompts in the console.
 #### 2. OR If you prefer to not import it into an IDE:
 1. cd to the MarsRover dir
-2. Build the project and run all tests: ```mvn clean install```
+2. Build the project and run all tests: ```mvn clean package```
 3. Run the jar built with: ```java -jar target\MarsRover-1.0-SNAPSHOT.jar```
