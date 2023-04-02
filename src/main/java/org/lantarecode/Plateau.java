@@ -14,7 +14,7 @@ public class Plateau {
             throw new IllegalStateException ("upperRightX && upperRightY should be greater than 0");
         }
         this.UPPER_RIGHT_X = upperRightX;
-        this.UPPER_RIGHT_Y = upperRightX;
+        this.UPPER_RIGHT_Y = upperRightY;
     }
 
     /**
@@ -26,5 +26,14 @@ public class Plateau {
         int x = position.getX();
         int y = position.getY();
         return (x >= 0 && x <= this.UPPER_RIGHT_Y && y >= 0 && y <= this.UPPER_RIGHT_X);
+    }
+
+
+    public int getUpperRightX() {
+        return UPPER_RIGHT_X;
+    }
+
+    public int getUpperRightY() {
+        return UPPER_RIGHT_Y;
     }
 }

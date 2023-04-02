@@ -62,7 +62,6 @@ public class Rover implements Movement {
             default:
                 throw new IllegalArgumentException ("Invalid facing");
         }
-        // TODO Update this.getPosition().setFacing();
     }
 
     /**
@@ -86,7 +85,6 @@ public class Rover implements Movement {
             default:
                 throw new IllegalArgumentException ("Invalid facing");
         }
-        // TODO Update this.getPosition().setFacing();
     }
 
     /**
